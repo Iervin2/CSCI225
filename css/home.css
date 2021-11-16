@@ -1,0 +1,63 @@
+footer{
+    position: fixed;
+    bottom: 0%;
+    left: 50
+}
+
+body{
+    background-color: #fcf7e7;
+}
+
+div.navbar{
+    position: fixed;
+    top: 0%;
+    left: 0px;
+}
+
+div.navbar ul a{
+    display: inline-block;
+    padding: 0.5em;
+    width: 190px;
+    background-color: #B2EDD1;
+    border-top: 2px solid #D8829D;
+    border-radius: 0px 30px 5px 10px;
+}
+
+div.introduction{
+    position: absolute;
+    top: 50px;
+    left: 0%;
+}
+
+#introduction p{
+    float: left;
+    width: 50%;
+}
+
+#introduction img{
+    margin-right: -30px;
+    float: right;
+    top: 20px;
+    width: 15%;
+    height: 10%;
+}
+
+div.assignment{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+}
+
+div.portfolio{
+    position: relative;
+    top: 220px;
+    left: 0%;
+    
+}
+
+div.address{
+
+}
+
+
+

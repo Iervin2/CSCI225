@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <title>CSCI225-Isaiah Ervin//BMI Calculator</title>
+</head>
+
+<body>
+    <div class="bmi">
+        <h1>BMI Calculator</h1>
+        <p>
+            <input type="text" placeholder="FirstName" id="user" value="Name">
+            <p id="greeting">
+
+            </p>
+            <input type="text" placeholder="In pounds(lbs)" id="lbs" value="Weight" required>
+            <input type="text" placeholder="In inches" id="inch" value="Height" required>
+            <select name="usersAge">
+                <option value="sub20">Under 20 years old</option>
+                <option value="super20">20 years old or older</option>
+            </select>
+            <button id="button">Compute BMI</button>
+            <p id="result">
+        
+            </p>
+            <img src="img/Female_Mii.png" alt="Female_Mii">
+        </p>
+    </div>
+
+    <script>
+        //event to greet user
+        function hello(){
+            var name=document.getElementById("user").value;
+            document.getElementById("greeting").textContent= "Hello "+ name +"!";
+        }
+        //event handler
+        document.getElementById("user").addEventListener('blur', hello, false);
+
+        //event to calculate and display bmi
+        function calBMI(){
+            var w = parseFloat(document.getElementById("lbs").value);
+            var h = parseFloat(document.getElementById("inch").value);
+            var bmi = (w*703)/(h*h);
+            document.getElementById("result").textContent = "Your BMI is "+ bmi.toString();
+            setInterval(function(){}, 3000);
+        }
+        document.getElementById('button').addEventListener('click', calBMI, false);
+
+    </script>
+</body>

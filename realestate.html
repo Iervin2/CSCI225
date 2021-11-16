@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <title>CSCI225-Isaiah Ervin//Loan Calculator</title>
+</head>
+
+<body>
+    <img src="img/Estate.jpg" alt="">
+    <div>
+        <ul>
+            <li>Buy</li>
+            <li>Sell</li>
+            <li>Loan</li>
+            <li>About</li>
+        </ul>
+    </div>
+
+    <div class="loanCalculator">
+        <h1>Loan Information</h1>
+        <p>
+            <form>
+                <p>Loan Amount: <input type="text" id='loan' required>$</p>
+                <p>Interest Rate(Annual): <input type="text" id='rate' required></p>
+                <p>Loan Term: <input type="text" id='term' required></p>
+                <p>Start Date: <input type="text" id='year' required>
+                </p>
+            </form>
+        </p>
+        <h2><input type="sumbit" id='calculate' value="Calculate"></h2>
+
+        <p id='results'>
+            <table id="chart">
+            </table>
+        </p>
+    <script>
+        //when click sumbit
+        function loanCal(){
+            //collect data
+            var intial = parseFloat(document.getElementById('loan').value);
+            var rate = parseFloat(document.getElementById('rate').value)/100;
+            var time = parseFloat(document.getElementById('term').value);
+            var start = parseFloat(document.getElementById('year').value);
+            //calculate monthly payments
+            var monthly = rate/12;
+            var numMonths = time*12;
+            var payments = intial*monthly/(1- (1 + Math.pow(monthly,-numMonths)));
+            
+            console.log(payments);
+
+            //display chart
+            document.getElementById('chart').innerHTML = "<tr> <td> Date </td> <td> Interest </td> <td> Principle </td> <td> Balance </td> </tr>";
+            var balance = intial;
+            console.log("first row done")
+            for(var i=0; i < time; i++){
+                var date = start+1;
+                balance= balance-(payments*12);
+                var interest = balance*rate;
+                var principle = (payments*12)-interest;
+                document.getElementById('chart').innterHTML = "<tr> <td>"+ date +" </td> <td>"+ interest +"</td> <td>"+ principle +"</td> <td>"+ balance +" </td> </tr>";
+                console.log("row done")
+            }
+
+
+        }
+
+
+        //bind event
+        document.getElementById('calculate').addEventListener('click', loanCal, false);
+    </script>
+
+
+    </div>
+    
+
+
+
+</body>
